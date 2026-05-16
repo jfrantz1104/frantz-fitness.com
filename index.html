@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Frantz Fitness | Physique Coaching</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+--black:#080807;
+--dark:#0f0f0d;
+--card:#161612;
+--green:#4e5e32;
+--green-light:#7a9042;
+--sand:#c4af8e;
+--offwhite:#edeae3;
+--muted:#8a8678;
+--border:#2a2a24;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--offwhite);font-family:'Barlow',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.2rem 2rem;display:flex;justify-content:space-between;align-items:center;background:rgba(8,8,7,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Barlow Condensed',sans-serif;font-size:1.25rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;color:var(--offwhite);}
+.nav-logo span{color:var(--green-light);}
+.nav-cta{background:var(--green);color:var(--offwhite);border:none;padding:0.6rem 1.4rem;font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+.nav-cta:hover{background:var(--green-light);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:flex-end;padding:0;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(to right, rgba(8,8,7,0.97) 40%, rgba(8,8,7,0.6) 70%, rgba(8,8,7,0.3) 100%);}
+.hero-photo{position:absolute;right:0;bottom:0;height:100%;width:60%;object-fit:cover;object-position:top center;}
+.hero-photo-placeholder{position:absolute;right:0;bottom:0;height:100%;width:58%;background:linear-gradient(135deg,#1a1f10 0%,#2a3518 50%,#1a1f10 100%);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem;letter-spacing:0.05em;}
+.hero-content{position:relative;z-index:2;padding:10rem 4rem 5rem;}
+.hero-eyebrow{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem;}
+.hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(3.5rem,7vw,6rem);font-weight:800;line-height:0.95;text-transform:uppercase;letter-spacing:0.02em;margin-bottom:1.5rem;}
+.hero-title span{color:var(--green-light);}
+.hero-sub{font-size:1.05rem;font-weight:300;color:var(--sand);max-width:420px;line-height:1.7;margin-bottom:2.5rem;}
+.hero-badges{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
+.badge{background:var(--card);border:1px solid var(--border);padding:0.4rem 0.9rem;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);}
+.badge-highlight{border-color:var(--green);color:var(--green-light);}
+.hero-cta{display:inline-block;background:var(--green);color:var(--offwhite);padding:0.9rem 2.2rem;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;}
+.hero-cta:hover{background:var(--green-light);}
+
+/* DIVIDER */
+.divider{height:1px;background:var(--border);margin:0;}
+
+/* ABOUT */
+.about{padding:6rem 4rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.about-label{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem;}
+.about-heading{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;text-transform:uppercase;line-height:1.05;margin-bottom:1.5rem;}
+.about-heading span{color:var(--green-light);}
+.about-body{font-size:1rem;font-weight:300;color:var(--sand);line-height:1.8;margin-bottom:1rem;}
+.about-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem;}
+.stat{background:var(--card);border:1px solid var(--border);padding:1.25rem;}
+.stat-number{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:var(--offwhite);line-height:1;}
+.stat-label{font-size:0.8rem;font-weight:400;color:var(--muted);letter-spacing:0.05em;margin-top:0.25rem;}
+.about-photo-stack{position:relative;height:480px;}
+.about-photo-main{position:absolute;inset:0;object-fit:cover;width:100%;height:100%;}
+.about-photo-placeholder{width:100%;height:100%;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:0.85rem;letter-spacing:0.05em;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase;}
+.about-accent{position:absolute;bottom:-1rem;right:-1rem;width:60%;height:60%;border:2px solid var(--green);z-index:-1;}
+
+/* COACHING */
+.coaching{background:var(--dark);padding:6rem 4rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.coaching-inner{max-width:1100px;margin:0 auto;}
+.section-label{font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;color:var(--green-light);margin-bottom:1rem;text-align:center;}
+.section-heading{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:800;text-transform:uppercase;line-height:1.05;text-align:center;margin-bottom:0.75rem;}
+.section-sub{font-size:1rem;font-weight:300;color:var(--sand);text-align:center;max-width:520px;margin:0 auto 3.5rem;}
+.coaching-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);}
+.coaching-item{background:var(--card);padding:2rem;position:relative;}
+.coaching-number{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:800;color:var(--border);line-height:1;margin-bottom:1rem;}
+.coaching-title{font-family:'Barlow Condensed',sans-serif;font-size:1.1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--offwhite);margin-bottom:0.75rem;}
+.coaching-desc{font-size:0.9rem;font-weight:300;color:var(--muted);line-height:1.7;}
+.coaching-accent{position:absolute;top:0;left:0;width:3px;height:0;background:var(--green-light);transition:height 0.3s;}
+.coaching-item:hover .coaching-accent{height:100%;}
+
+/* WHO */
+.who{padding:6rem 4rem;max-width:1100px;margin:0 auto;}
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3.5rem;}
+.who-card{background:var(--card);border:1px solid var(--border);padding:1.5rem;display:flex;gap:1rem;align-items:flex-start;}
+.who-icon{width:36px;height:36px;background:var(--green);flex-shrink:0;display:flex;align-items:center;justify-content:center;}
+.who-icon svg{width:18px;height:18px;stroke:var(--offwhite);fill:none;stroke-width:2;}
+.who-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:0.35rem;}
+.who-desc{font-size:0.88rem;font-weight:300;color:var(--muted);line-height:1.6;}
+
+/* APPLY */
+.apply{background:var(--dark);padding:6rem 4rem;border-top:1px solid var(--border);}
+.apply-inner{max-width:700px;margin:0 auto;}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2.5rem;}
+.form-full{grid-column:1/-1;}
+.form-label{display:block;font-family:'Barlow Condensed',sans-serif;font-size:0.8rem;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-bottom:0.5rem;}
+.form-input,.form-select,.form-textarea{width:100%;background:var(--card);border:1px solid var(--border);color:var(--offwhite);padding:0.8rem 1rem;font-family:'Barlow',sans-serif;font-size:0.95rem;font-weight:300;outline:none;transition:border-color 0.2s;-webkit-appearance:none;appearance:none;}
+.form-select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238a8678' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 1rem center;}
+.form-textarea{resize:vertical;min-height:120px;}
+.form-input:focus,.form-select:focus,.form-textarea:focus{border-color:var(--green-light);}
+.form-input::placeholder,.form-textarea::placeholder{color:var(--border);}
+.form-select option{background:var(--card);}
+.submit-btn{width:100%;background:var(--green);color:var(--offwhite);border:none;padding:1rem;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;cursor:pointer;margin-top:1rem;transition:background 0.2s;}
+.submit-btn:hover{background:var(--green-light);}
+.form-note{font-size:0.8rem;color:var(--muted);text-align:center;margin-top:1rem;line-height:1.6;}
+
+/* FOOTER */
+footer{padding:2.5rem 4rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-logo{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:0.12em;text-transform:uppercase;}
+.footer-logo span{color:var(--green-light);}
+.footer-copy{font-size:0.8rem;color:var(--muted);}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+.hero-content{padding:8rem 1.5rem 3rem;}
+.hero-bg{background:linear-gradient(to bottom,rgba(8,8,7,0.98) 50%,rgba(8,8,7,0.7) 100%);}
+.hero-photo-placeholder{width:100%;opacity:0.2;}
+.about{grid-template-columns:1fr;padding:4rem 1.5rem;gap:3rem;}
+.about-photo-stack{height:320px;}
+.coaching{padding:4rem 1.5rem;}
+.coaching-grid{grid-template-columns:1fr;}
+.who{padding:4rem 1.5rem;}
+.who-grid{grid-template-columns:1fr;}
+.apply{padding:4rem 1.5rem;}
+.form-grid{grid-template-columns:1fr;}
+footer{padding:2rem 1.5rem;flex-direction:column;text-align:center;}
+nav{padding:1rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Frantz <span>Fitness</span></div>
+  <a href="#apply" class="nav-cta">Apply Now</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-photo-placeholder">[ Add your competition photo here ]</div>
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Online Physique Coaching</p>
+    <h1 class="hero-title">Build The<br>Physique<br>You <span>Want.</span></h1>
+    <p class="hero-sub">Evidence-based coaching for people who are serious about their results. No fluff. No guessing. Just a proven process.</p>
+    <div class="hero-badges">
+      <span class="badge badge-highlight">Mr. Grand Rapids 2024</span>
+      <span class="badge">20+ Years Experience</span>
+      <span class="badge">Online Coaching</span>
+    </div>
+    <a href="#apply" class="hero-cta">Start Your Application</a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="about">
+  <div>
+    <p class="about-label">Who I Am</p>
+    <h2 class="about-heading">I Learned<br>The <span>Hard Way.</span><br>You Don't Have To.</h2>
+    <p class="about-body">I've been lifting weights since I was 12 years old. Over two decades of training, competing, and making every mistake in the book — so my clients don't have to make them too.</p>
+    <p class="about-body">I've competed on stage multiple times and won Mr. Grand Rapids 2024. But more importantly, I've spent years studying what actually works and building a coaching approach that's rooted in real science, not gym mythology.</p>
+    <p class="about-body">My coaching is built on the same principles I use myself. Evidence-based. No fluff. No shortcuts. Just a clear process that gets results.</p>
+    <div class="about-stats">
+      <div class="stat">
+        <div class="stat-number">20+</div>
+        <div class="stat-label">Years Training</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">2024</div>
+        <div class="stat-label">Mr. Grand Rapids</div>
+      </div>
+    </div>
+  </div>
+  <div class="about-photo-stack">
+    <div class="about-photo-placeholder">[ Add your photo here ]</div>
+    <div class="about-accent"></div>
+  </div>
+</section>
+
+<section class="coaching">
+  <div class="coaching-inner">
+    <p class="section-label">What You Get</p>
+    <h2 class="section-heading">Coaching That<br>Actually Works</h2>
+    <p class="section-sub">Everything you need to build your best physique, with none of the guesswork.</p>
+    <div class="coaching-grid">
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">01</div>
+        <div class="coaching-title">Custom Nutrition Plan</div>
+        <div class="coaching-desc">Calories, macros, and meal structure built around your body, your goals, and your lifestyle. Adjusted weekly based on real data.</div>
+      </div>
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">02</div>
+        <div class="coaching-title">Personalized Training Program</div>
+        <div class="coaching-desc">A program built specifically for your goals and training experience. Progressive, purposeful, and designed to actually move the needle.</div>
+      </div>
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">03</div>
+        <div class="coaching-title">Weekly Check-ins</div>
+        <div class="coaching-desc">Consistent accountability and data-driven adjustments every week. No more guessing whether what you're doing is working.</div>
+      </div>
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">04</div>
+        <div class="coaching-title">Direct Access to Me</div>
+        <div class="coaching-desc">Questions, adjustments, and support between check-ins. You're not left alone to figure it out.</div>
+      </div>
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">05</div>
+        <div class="coaching-title">Contest Prep</div>
+        <div class="coaching-desc">If competing is your goal, I'll take you from offseason all the way to stage. Peak week, posing guidance, and everything in between.</div>
+      </div>
+      <div class="coaching-item">
+        <div class="coaching-accent"></div>
+        <div class="coaching-number">06</div>
+        <div class="coaching-title">Evidence-Based Methods</div>
+        <div class="coaching-desc">No bro-science. No outdated myths. Everything we do is grounded in research and tested in real athletes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <p class="section-label">Is This For You</p>
+  <h2 class="section-heading">Who I Work With</h2>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="who-icon">
+        <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/></svg>
+      </div>
+      <div>
+        <div class="who-title">Everyday People</div>
+        <div class="who-desc">You want to build a better physique but don't know where to start or what's actually working.</div>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 014-4h4a4 4 0 014 4v2"/></svg>
+      </div>
+      <div>
+        <div class="who-title">Aspiring Competitors</div>
+        <div class="who-desc">You want to step on stage and need a coach who actually knows what it takes to get there.</div>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <div class="who-title">Stuck Athletes</div>
+        <div class="who-desc">You've been training for years and your progress has stalled. You need a smarter approach, not just more effort.</div>
+      </div>
+    </div>
+    <div class="who-card">
+      <div class="who-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="who-title">Serious Athletes</div>
+        <div class="who-desc">You take your training seriously and want coaching that matches your level of commitment.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="apply-inner">
+    <p class="section-label">Work With Me</p>
+    <h2 class="section-heading">Apply For Coaching</h2>
+    <p class="section-sub" style="text-align:left;margin:0;">Tell me about yourself and your goals. I'll review your application and reach out within 48 hours.</p>
+    <form class="form-grid" action="mailto:jfrantzfitness@gmail.com" method="POST" enctype="text/plain">
+      <div>
+        <label class="form-label">First Name</label>
+        <input class="form-input" type="text" name="First Name" placeholder="John" required>
+      </div>
+      <div>
+        <label class="form-label">Last Name</label>
+        <input class="form-input" type="text" name="Last Name" placeholder="Smith" required>
+      </div>
+      <div class="form-full">
+        <label class="form-label">Email Address</label>
+        <input class="form-input" type="email" name="Email" placeholder="john@email.com" required>
+      </div>
+      <div class="form-full">
+        <label class="form-label">Primary Goal</label>
+        <select class="form-select" name="Primary Goal" required>
+          <option value="" disabled selected>Select your goal</option>
+          <option>Build Muscle</option>
+          <option>Lose Fat</option>
+          <option>Contest Prep</option>
+          <option>General Physique Improvement</option>
+        </select>
+      </div>
+      <div class="form-full">
+        <label class="form-label">How Long Have You Been Training?</label>
+        <select class="form-select" name="Training Experience" required>
+          <option value="" disabled selected>Select experience level</option>
+          <option>Less than 1 year</option>
+          <option>1 to 3 years</option>
+          <option>3 to 5 years</option>
+          <option>5 to 10 years</option>
+          <option>10+ years</option>
+        </select>
+      </div>
+      <div class="form-full">
+        <label class="form-label">Have You Worked With a Coach Before?</label>
+        <select class="form-select" name="Previous Coaching">
+          <option value="" disabled selected>Select one</option>
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div>
+      <div class="form-full">
+        <label class="form-label">What Is Your Biggest Struggle Right Now?</label>
+        <textarea class="form-textarea" name="Biggest Struggle" placeholder="Tell me what's been holding you back..."></textarea>
+      </div>
+      <div class="form-full">
+        <label class="form-label">Anything Else I Should Know?</label>
+        <textarea class="form-textarea" name="Additional Info" placeholder="Goals, timeline, questions, anything..."></textarea>
+      </div>
+      <div class="form-full">
+        <button type="submit" class="submit-btn">Submit Application</button>
+        <p class="form-note">Applications are reviewed within 48 hours. Coaching spots are limited.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Frantz <span>Fitness</span></div>
+  <div class="footer-copy">© 2025 Frantz Fitness · Mr. Grand Rapids 2024 · Online Physique Coaching</div>
+</footer>
+
+</body>
+</html>
